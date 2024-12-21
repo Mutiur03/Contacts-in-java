@@ -1,21 +1,17 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Contacts {
     String name;
     String phone;
     String Email;
-    ArrayList<String> msg = new ArrayList();
+    List<String> msg = new ArrayList();
 
-    public Contacts(String name, String phone, String email, String msg) {
+    public Contacts(String name, String phone, String email, List<String>msg) {
         this.name = name;
         this.phone = phone;
         this.Email = email;
-        this.msg.add(msg);
+        this.msg.add(String.valueOf(msg));
     }
 
     public Contacts() {
@@ -40,16 +36,15 @@ public class Contacts {
     }
 
     void GetMsg() {
-        if(this.msg.isEmpty()){
+        if(msg.isEmpty()){
             return;
         }
         System.out.println("Name :" + this.name);
         System.out.print("Message :");
-
-        for(String s : this.msg) {
-            System.out.println(s);
+        for (int i = 0; i < msg.size(); i++) {
+            String cleanString = msg.get(i).replace("[", "").replace("]", "");
+            System.out.println(cleanString);
         }
-
     }
 
     public void setMsg(String mg) {
@@ -64,9 +59,9 @@ public class Contacts {
             return;
         }
         System.out.print("Message :");
-
-        for(String s : this.msg) {
-            System.out.println(s);
+        for (int i = 0; i < msg.size(); i++) {
+            String cleanString = msg.get(i).replace("[", "").replace("]", "");
+            System.out.println(cleanString);
         }
 
     }

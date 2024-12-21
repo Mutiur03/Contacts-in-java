@@ -1,12 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     static Scanner scanner;
@@ -75,12 +67,14 @@ public class Main {
 
     }
 
-    private static void setMsg(String name, String msg) {
+    private static void setMsg(String name, String mg) {
+        List<String>s=new ArrayList<>();
+        s.add(mg);
         if (m.containsKey(name)) {
             Contacts target = (Contacts)m.get(name);
-            target.setMsg(msg);
+            target.setMsg(String.valueOf(s));
         } else {
-            set(name, msg);
+            set(name, s);
         }
 
     }
@@ -175,19 +169,19 @@ public class Main {
     }
 
     private static void setNumber(String name, String phone, String email) {
-        Contacts c = new Contacts(name, phone, email, "");
+        Contacts c = new Contacts(name, phone, email, new ArrayList<>());
         contact.add(c);
         m.put(name, c);
         m.put(phone, c);
         m.put(email, c);
     }
 
-    private static void set(String name, String msg) {
+    private static void set(String name, List<String>msg) {
         System.out.println("Contact not found");
         Contacts c = new Contacts(name, "", "", msg);
         contact.add(c);
         m.put(name, c);
-        m.put(msg, c);
+        //m.put(msg, c);
         System.out.println("Saved as new");
     }
 
